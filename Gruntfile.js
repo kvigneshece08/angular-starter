@@ -226,7 +226,7 @@ module.exports = function(grunt) {
       options: {
         config: 'client/config/eslint.json'
       },
-      target: ['client/app/**/*.js']
+      target: ['client/app/**/*.js', '!client/app/translations.js']
     },
 
     /**
@@ -260,6 +260,22 @@ module.exports = function(grunt) {
           from: /<!-- if-dev -->(.|\n)*<!-- \/if-dev -->/g,    // thank you http://regex101.com/
           to: ''
         }]
+      }
+    },
+
+    nggettext_extract: {
+      pot: {
+        files: {
+          'client/po/template.pot': ['client/app/**/*.html']
+        }
+      },
+    },
+
+    nggettext_compile: {
+      all: {
+        files: {
+          'client/app/translations.js': ['client/po/*.po']
+        }
       }
     }
   });

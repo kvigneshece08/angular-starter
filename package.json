@@ -32,6 +32,7 @@
     "grunt-scss-lint": "^0.1.5",
     "grunt-gitinfo": "^0.1.4",
     "grunt-text-replace": "^0.3.11",
-    "grunt-file-append": "^0.0.4"
+    "grunt-file-append": "^0.0.4",
+    "grunt-angular-gettext": "0.2.14"
   }
 }

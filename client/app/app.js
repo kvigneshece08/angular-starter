@@ -8,15 +8,13 @@ angular.module('app', [
   'login',
   'home',
   'header',
+  'gettext', // translation
   'env'   // added by build system.
 ])
 
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  .config(['$stateProvider', '$locationProvider',
+    function ($stateProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
-
-    $urlRouterProvider.when('', '/home');
-    //$urlRouterProvider.otherwise('/home');
 
     $stateProvider.state('app', {
       url: '/',
@@ -31,6 +29,9 @@ angular.module('app', [
       if ( (/^app\..*/.test(toState.name) || toState.name === 'app') && !auth.isAuthenticated()) {
         event.preventDefault();
         $state.transitionTo('login');
+      } else if (toState.name === 'app') {
+         event.preventDefault();
+         $state.transitionTo('app.home');
       }
     });
   }]);

@@ -9,6 +9,7 @@
     "bootstrap": "~3.1.1",
     "underscore": "~1.6.0",
     "jquery": "~1.10.2",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "angular-gettext": "0.2.9"
   }
 }
